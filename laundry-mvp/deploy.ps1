@@ -1,4 +1,4 @@
-﻿# Deployment script for FamsComTech
+﻿# Deployment script for UltraClean247
 # Usage: .\deploy.ps1
 
 # Load environment variables from .env files if they exist
@@ -89,11 +89,11 @@ if (Test-Path "out\_next") {
 
 # Deploy to GitHub Pages
 Write-Host "Deploying to GitHub Pages..." -ForegroundColor Blue
-npx gh-pages -d out --repo https://$env:GITHUB_TOKEN@github.com/fareezahmed/famscomtech.git
+npx gh-pages -d out --repo https://$env:GITHUB_TOKEN@github.com/fareezahmed/ultraclean247.git
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Deployment successful!" -ForegroundColor Green
-    Write-Host "Your site should be available at: https://fareezahmed.github.io/famscomtech/" -ForegroundColor Cyan
+    Write-Host "Your site should be available at: https://ultraclean247.au/" -ForegroundColor Cyan
 } else {
     Write-Host "Deployment failed!" -ForegroundColor Red
     exit 1

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const repo = "famscomtech"; // e.g., laundry-mvp
+const repo = "ultraclean247"; // e.g., laundry-mvp
 
 const nextConfig: any = {
   // Image optimization
@@ -10,9 +10,9 @@ const nextConfig: any = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   
-  // Performance optimizations
+  // Performance optimizations - disabled optimizePackageImports to fix build issues
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    // optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
   
   // Compression
