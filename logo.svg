@@ -1,22 +1,104 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
-  <circle cx="24" cy="24" r="22" fill="white" stroke="#3B82F6" stroke-width="2"/>
-  
-  <!-- Shirt icon in red -->
-  <path d="M16 18C16 16.8954 16.8954 16 18 16H30C31.1046 16 32 16.8954 32 18V20C32 21.1046 31.1046 22 30 22H18C16.8954 22 16 21.1046 16 20V18Z" fill="#EF4444"/>
-  
-  <!-- Collar -->
-  <path d="M20 18C20 17.4477 20.4477 17 21 17H27C27.5523 17 28 17.4477 28 18V19C28 19.5523 27.5523 20 27 20H21C20.4477 20 20 19.5523 20 19V18Z" fill="#1E40AF"/>
-  
-  <!-- Sleeves -->
-  <path d="M14 22C14 20.8954 14.8954 20 16 20H18C19.1046 20 20 20.8954 20 22V26C20 27.1046 19.1046 28 18 28H16C14.8954 28 14 27.1046 14 26V22Z" fill="#EF4444"/>
-  <path d="M28 22C28 20.8954 28.8954 20 30 20H32C33.1046 20 34 20.8954 34 22V26C34 27.1046 33.1046 28 32 28H30C28.8954 28 28 27.1046 28 26V22Z" fill="#EF4444"/>
-  
-  <!-- Body -->
-  <path d="M18 22H30V32C30 33.1046 29.1046 34 28 34H20C18.8954 34 18 33.1046 18 32V22Z" fill="#EF4444"/>
-  
-  <!-- Water drops -->
-  <circle cx="22" cy="28" r="1.5" fill="#3B82F6"/>
-  <circle cx="26" cy="28" r="1.5" fill="#3B82F6"/>
-  <circle cx="24" cy="30" r="1" fill="#3B82F6"/>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ultra Clean 247 Laundry — Logo</title>
+  <desc id="desc">Rounded square frame, laundry drum, 24/7 text with a small circular arrow under it, gradient blue-red.</desc>
+
+  <!-- Gradient -->
+  <defs>
+    <linearGradient id="blueRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0EA5E9"/>   <!-- Blue -->
+      <stop offset="100%" stop-color="#EF4444"/> <!-- Red -->
+    </linearGradient>
+    <clipPath id="drumClip">
+      <circle cx="128" cy="136" r="64"/>
+    </clipPath>
+    <marker id="uc-arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="strokeWidth" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="url(#blueRed)"/>
+    </marker>
+    
+    <!-- Animation definitions -->
+    <style>
+      @keyframes waterMove {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      
+      @keyframes waterWave {
+        0%, 100% { transform: translateY(0px) scaleY(1); }
+        25% { transform: translateY(-4px) scaleY(1.1); }
+        50% { transform: translateY(-8px) scaleY(0.9); }
+        75% { transform: translateY(-4px) scaleY(1.05); }
+      }
+      
+      @keyframes circleRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes bubbleFloat {
+        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+        50% { transform: translateY(-6px) scale(1.1); opacity: 0.6; }
+      }
+      
+      .water-animation {
+        animation: waterMove 3s ease-in-out infinite;
+      }
+      
+      .water-wave {
+        animation: waterWave 4s ease-in-out infinite;
+      }
+      
+      .circle-rotate {
+        animation: circleRotate 8s linear infinite;
+        transform-origin: 128px 168px;
+      }
+      
+      .bubble-float {
+        animation: bubbleFloat 2.5s ease-in-out infinite;
+      }
+      
+      .bubble-float-delay1 {
+        animation: bubbleFloat 2.5s ease-in-out infinite;
+        animation-delay: 0.5s;
+      }
+      
+      .bubble-float-delay2 {
+        animation: bubbleFloat 2.5s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+    </style>
+  </defs>
+
+  <!-- Outer rounded square -->
+  <rect x="24" y="24" width="208" height="208" rx="36"
+        stroke="url(#blueRed)" stroke-width="8" fill="none"/>
+
+  <!-- Drum bezel -->
+  <circle cx="128" cy="136" r="70"
+          stroke="url(#blueRed)" stroke-width="10" fill="none"/>
+
+  <!-- 24/7 text -->
+  <text x="128" y="140" font-size="40" text-anchor="middle" fill="url(#blueRed)"
+        font-family="Arial, Helvetica, sans-serif" font-weight="bold">24/7</text>
+
+  <!-- Small circular arrow under text -->
+  <circle cx="128" cy="168" r="18"
+          stroke="url(#blueRed)" stroke-width="6" fill="none"
+          marker-end="url(#uc-arrow)" class="circle-rotate"/>
+
+  <!-- Sparkles -->
+  <path d="M210 92 h12 M216 86 v12"
+        stroke="url(#blueRed)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M188 70 h9 M192.5 66 v9"
+        stroke="url(#blueRed)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Water inside drum -->
+  <g clip-path="url(#drumClip)">
+    <path d="M60 152 C90 130 120 170 150 152 C170 140 190 160 196 150 V200 H60 Z"
+          fill="url(#blueRed)" opacity="0.2" class="water-wave"/>
+    <circle cx="112" cy="126" r="6" fill="url(#blueRed)" opacity="0.35" class="bubble-float"/>
+    <circle cx="146" cy="118" r="5" fill="url(#blueRed)" opacity="0.25" class="bubble-float-delay1"/>
+    <circle cx="164" cy="134" r="4" fill="url(#blueRed)" opacity="0.3" class="bubble-float-delay2"/>
+  </g>
 </svg>
