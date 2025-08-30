@@ -1,0 +1,13 @@
+{
+  "laundry": {
+    "washing-machine": "/icons/washing-machine-animation.gif",
+    "clothes-packing": "/icons/clothes-packing.gif",
+    "ironing": "/icons/ironing-animation.gif",
+    "detergent": "/icons/detergent-animation.gif",
+    "tshirt-drying": "/icons/tshirt-drying-animation.gif",
+    "pile-of-towels": "/icons/pile-of-towels-animation.gif"
+  },
+  "delivery": {
+    "truck": "/icons/delivery-truck.gif"
+  }
+}
