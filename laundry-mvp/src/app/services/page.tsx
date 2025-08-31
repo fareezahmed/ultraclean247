@@ -185,19 +185,121 @@ export default function ServicesPage() {
                   <Separator className="my-6" />
 
                   {/* Pricing and CTA */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-2xl font-bold text-laundry-blue">{service.price}</span>
                       <span className="text-gray-500 ml-1">{service.unit}</span>
                     </div>
-                    <Button variant="laundry-primary" size="sm" asChild>
-                      <a href={`/services/${service.id}`}>Learn More</a>
-                    </Button>
                   </div>
+                  <Button variant="laundry-primary" size="sm" asChild className="w-full">
+                    <Link href={`/book?service=${service.id}`}>Book Now</Link>
+                  </Button>
                 </CardContent>
               </Card>
             );
             })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Service Navigation Cards */}
+      <section className="py-20">
+        <Container variant="page">
+          <div className="text-center mb-16">
+            <Heading variant="section" size="4xl" className="mb-6">
+              Explore Our Services
+            </Heading>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Learn more about our specialized laundry and ironing services
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Laundry Service Card */}
+            <Card variant="service-card" className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="p-3 bg-laundry-green/10 rounded-xl mr-4">
+                    <Icon icon={Sparkles} className="w-16 h-16 text-laundry-green" />
+                  </div>
+                  <div>
+                    <Heading variant="card" size="xl" className="mb-1">
+                      Laundry Services
+                    </Heading>
+                    <Badge variant="service-tag" className="text-xs">
+                      Professional Care
+                    </Badge>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Complete laundry solutions including washing, drying, and folding. 
+                  We handle all types of clothing and linens with premium care.
+                </p>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Shield} className="h-4 w-4 text-laundry-green mr-2" />
+                    <span>Wash, dry & fold</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Leaf} className="h-4 w-4 text-laundry-green mr-2" />
+                    <span>Premium detergents</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Star} className="h-4 w-4 text-laundry-green mr-2" />
+                    <span>Quality guaranteed</span>
+                  </div>
+                </div>
+                
+                <Button variant="laundry-primary" className="w-full" asChild>
+                  <Link href="/services/laundry">Explore Laundry Services</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Ironing Service Card */}
+            <Card variant="service-card" className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="p-3 bg-laundry-orange/10 rounded-xl mr-4">
+                    <Icon icon={Zap} className="w-16 h-16 text-laundry-orange" />
+                  </div>
+                  <div>
+                    <Heading variant="card" size="xl" className="mb-1">
+                      Ironing Services
+                    </Heading>
+                    <Badge variant="express" className="text-xs">
+                      Expert Pressing
+                    </Badge>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Professional ironing and pressing services for all types of garments. 
+                  Get crisp, wrinkle-free results with expert care.
+                </p>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Shield} className="h-4 w-4 text-laundry-orange mr-2" />
+                    <span>Expert pressing</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Leaf} className="h-4 w-4 text-laundry-orange mr-2" />
+                    <span>Steam treatment</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Icon icon={Star} className="h-4 w-4 text-laundry-orange mr-2" />
+                    <span>Crisp finish</span>
+                  </div>
+                </div>
+                
+                <Button variant="laundry-primary" className="w-full" asChild>
+                  <Link href="/services/ironing">Explore Ironing Services</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </section>

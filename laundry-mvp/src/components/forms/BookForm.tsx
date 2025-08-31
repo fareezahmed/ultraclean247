@@ -11,7 +11,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   Shirt,
   Sparkles,
@@ -90,6 +91,15 @@ const services = [
     color: 'laundry-red',
     price: '+$10',
     unit: 'surcharge'
+  },
+  {
+    id: 'work-week-special',
+    title: 'Work Week Special Bundle',
+    description: '5kg wash, dry, fold + 5 work shirts ironed',
+    icon: Briefcase,
+    color: 'laundry-blue',
+    price: '$42',
+    unit: 'bundle'
   }
 ];
 
@@ -103,6 +113,7 @@ export default function BookForm() {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
   const [bookingData, setBookingData] = useState<any>(null);
   const [bookingReference, setBookingReference] = useState<string>("");
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -117,6 +128,19 @@ export default function BookForm() {
       agreeToTerms: false
     }
   });
+
+  // Handle URL parameters for service selection
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      const service = services.find(s => s.id === serviceParam);
+      if (service) {
+        setSelectedService(serviceParam);
+        setValue('service', serviceParam);
+        setValue('quantity', '1');
+      }
+    }
+  }, [searchParams, setValue]);
 
   const watchedService = watch("service");
   const watchedQuantity = watch("quantity");

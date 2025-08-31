@@ -105,7 +105,7 @@ export default function Home() {
                  </Button>
                </Link>
                <Link href="/services">
-                 <Button variant="laundry-outline" size="lg" className="text-lg bg-white px-8 py-4 border-2 hover:laundry-light-blue hover:text-laundry-blue transition-all duration-300 btn-hover">
+                 <Button variant="laundry-first-time" size="lg" className="text-lg px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 btn-hover">
                    View Our Services
                  </Button>
                </Link>
@@ -278,12 +278,15 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-6">
                   <div>
                     <span className="text-2xl font-bold text-laundry-blue">$30</span>
                     <span className="text-gray-500 ml-1">per 5kg</span>
                   </div>
                 </div>
+                <Button variant="laundry-first-time" className="w-full" asChild>
+                  <Link href="/book?service=everyday-laundry">Book Your First Service</Link>
+                </Button>
               </CardContent>
             </Card>
             
@@ -328,12 +331,15 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-6">
                   <div>
                     <span className="text-2xl font-bold text-laundry-green">$42</span>
                     <span className="text-gray-500 ml-1">bundle</span>
                   </div>
                 </div>
+                <Button variant="laundry-first-time" className="w-full" asChild>
+                  <Link href="/book?service=work-week-special">Book Your First Service</Link>
+                </Button>
               </CardContent>
             </Card>
             
@@ -378,12 +384,15 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-6">
                   <div>
                     <span className="text-2xl font-bold text-laundry-orange">$35</span>
                     <span className="text-gray-500 ml-1">per 2 sets</span>
                   </div>
                 </div>
+                <Button variant="laundry-first-time" className="w-full" asChild>
+                  <Link href="/book?service=bedding-bundle">Book Your First Service</Link>
+                </Button>
               </CardContent>
             </Card>
           </div>

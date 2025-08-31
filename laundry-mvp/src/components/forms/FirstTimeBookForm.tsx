@@ -1,4 +1,5 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { bookingSchema, type BookingFormData, serviceAreas, timeSlots } from "@/lib/validations/booking";
@@ -11,11 +12,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
+import { toast } from "sonner";
+import { useSearchParams } from "next/navigation";
 import {
-  Shirt, Sparkles, Zap, Clock, Heart, Shield, Star, Calendar, MapPin, User, Phone, Mail, Package, CheckCircle, AlertCircle, Gift, Sparkles as SparklesIcon, Award, Truck, Bed, Briefcase
+  Shirt,
+  Sparkles,
+  Zap,
+  Clock,
+  Heart,
+  Shield,
+  Star,
+  Calendar,
+  MapPin,
+  User,
+  Phone,
+  Mail,
+  Package,
+  CheckCircle,
+  AlertCircle,
+  Bed,
+  Briefcase,
+  Gift,
+  Award,
+  Truck
 } from "lucide-react";
-import React from "react";
 import BookingConfirmation from "./BookingConfirmation";
 
 // Service data for first-time customers with special offers
@@ -84,6 +104,17 @@ const firstTimeServices = [
     price: '+$10', 
     unit: 'surcharge',
     offer: 'Free Upgrade'
+  },
+  { 
+    id: 'work-week-special', 
+    title: 'Work Week Special Bundle', 
+    description: '5kg wash, dry, fold + 5 work shirts ironed', 
+    icon: Briefcase, 
+    color: 'laundry-blue', 
+    price: '$37.80', 
+    originalPrice: '$42',
+    unit: 'bundle',
+    offer: '10% OFF First Order'
   }
 ];
 
@@ -98,6 +129,7 @@ export default function FirstTimeBookForm() {
   const [bookingData, setBookingData] = useState<any>(null);
   const [bookingReference, setBookingReference] = useState<string>("");
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -113,6 +145,19 @@ export default function FirstTimeBookForm() {
       agreeToTerms: false
     }
   });
+
+  // Handle URL parameters for service selection
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      const service = firstTimeServices.find(s => s.id === serviceParam);
+      if (service) {
+        setSelectedService(serviceParam);
+        setValue('service', serviceParam);
+        setValue('quantity', '1');
+      }
+    }
+  }, [searchParams, setValue]);
 
   const watchedService = watch("service");
   const watchedQuantity = watch("quantity");

@@ -253,7 +253,7 @@ export default function IroningPage() {
                 for an additional $8 per item.
               </p>
               <Button variant="laundry-primary" asChild>
-                <a href="/book">Book Express Service</a>
+                <Link href="/book?service=express">Book Express Service</Link>
               </Button>
             </Card>
           </div>

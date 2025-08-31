@@ -48,7 +48,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <Icon icon={ShirtIcon} className="h-8 w-8 text-laundry-blue" />
+              <img src="/logo.svg" alt="Ultra Clean 247 Logo" className="h-8 w-8" />
               <span className="text-xl font-bold">Ultra Clean 247</span>
             </div>
             <p className="text-gray-300 mb-6">
